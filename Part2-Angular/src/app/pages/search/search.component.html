@@ -1,1 +1,51 @@
-<p>search works!</p>
+<div class="search-container">
+  <h2>🔍 Search & Filter Inventory</h2>
+
+  <div class="search-panel">
+    <div class="input-group">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        placeholder="Enter item name to search..." 
+        (keyup.enter)="onSearch()"
+      >
+      <button class="btn btn-primary" (click)="onSearch()">Search</button>
+      <button class="btn btn-outline" (click)="onReset()">Reset</button>
+    </div>
+    
+    <div class="filter-group">
+      <span class="filter-label">Quick Filters:</span>
+      <button class="btn btn-filter" (click)="showPopularOnly()">⭐ Show Popular Items Only</button>
+    </div>
+  </div>
+
+  <div class="results-summary" *ngIf="isSearched">
+    Found {{ searchResults.length }} result(s) for your query.
+  </div>
+
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Stock</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="searchResults.length === 0">
+          <td colspan="5" class="text-center">No items match your search criteria.</td>
+        </tr>
+        <tr *ngFor="let item of searchResults">
+          <td>{{ item.id }}</td>
+          <td><strong>{{ item.name }}</strong></td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.quantity }} ({{ item.status }})</td>
+          <td>${{ item.price | number:'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
