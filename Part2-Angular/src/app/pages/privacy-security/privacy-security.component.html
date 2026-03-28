@@ -1,1 +1,46 @@
-<p>privacy-security works!</p>
+<div class="privacy-container">
+  <h2>🔒 Privacy and Security Analysis</h2>
+  
+  <div class="analysis-card">
+    <h3>1. Data Persistence and Privacy</h3>
+    <p>
+      In accordance with the assessment requirements, this inventory application operates entirely on the client side. 
+      <strong>No user data or inventory records are transmitted to an external server.</strong> 
+      All data is temporarily stored within the browser's active memory (session state) using Angular Services. 
+      Once the browser tab is closed, the data is completely erased, ensuring zero risk of persistent data breaches or unauthorized third-party access.
+    </p>
+  </div>
+
+  <div class="analysis-card">
+    <h3>2. Input Validation (Data Integrity)</h3>
+    <p>
+      To prevent database corruption and logic errors, strict input validation is enforced across all forms:
+    </p>
+    <ul>
+      <li><strong>Type Checking:</strong> Numeric fields (like Quantity and Price) utilize strict HTML5 <code>type="number"</code> attributes and TypeScript logic to reject alphabetical characters.</li>
+      <li><strong>Uniqueness Enforcement:</strong> The system actively checks the <code>Item ID</code> against existing records to prevent duplication.</li>
+      <li><strong>Required Fields:</strong> Form submissions are blocked and error messages are displayed if mandatory fields are left blank.</li>
+    </ul>
+  </div>
+
+  <div class="analysis-card">
+    <h3>3. Cross-Site Scripting (XSS) Prevention</h3>
+    <p>
+      This application leverages Angular's built-in security mechanisms. Angular treats all values as untrusted by default. 
+      When values are inserted into the DOM (e.g., displaying an item name), Angular automatically sanitizes and escapes the content. 
+      This prevents malicious users from injecting executable scripts into the inputs (XSS attacks), making the UI secure by design.
+    </p>
+  </div>
+
+  <div class="analysis-card">
+    <h3>4. Future Security Considerations (If Scaling to Backend)</h3>
+    <p>
+      While this prototype is secure as a standalone client app, connecting it to a real server in the future would require:
+    </p>
+    <ul>
+      <li>Implementing <strong>JWT (JSON Web Tokens)</strong> for secure user authentication and route guarding.</li>
+      <li>Enabling <strong>HTTPS/TLS</strong> encryption for data in transit.</li>
+      <li>Adding server-side validation, as client-side validation can be bypassed by malicious actors interacting directly with the API.</li>
+    </ul>
+  </div>
+</div>
