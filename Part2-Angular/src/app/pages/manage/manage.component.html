@@ -1,1 +1,110 @@
 <p>manage works!</p>
+<div class="manage-container">
+  <h2>🛠️ Manage Inventory</h2>
+
+  <div *ngIf="feedbackMessage" class="feedback-alert" [ngClass]="{'error': isError, 'success': !isError}">
+    {{ feedbackMessage }}
+  </div>
+
+  <div class="content-wrapper">
+    <div class="form-section">
+      <h3>Item Details</h3>
+      
+      <div class="form-group">
+        <label>Item ID (Unique for Add)*:</label>
+        <input type="text" [(ngModel)]="currentItem.id" placeholder="e.g. ITEM002">
+      </div>
+
+      <div class="form-group">
+        <label>Item Name (Key for Update/Delete)*:</label>
+        <input type="text" [(ngModel)]="currentItem.name" placeholder="Enter exact name">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Category*:</label>
+          <select [(ngModel)]="currentItem.category">
+            <option value="Electronics">Electronics</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Tools">Tools</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Status*:</label>
+          <select [(ngModel)]="currentItem.status">
+            <option value="In Stock">In Stock</option>
+            <option value="Low Stock">Low Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Quantity*:</label>
+          <input type="number" [(ngModel)]="currentItem.quantity" min="0">
+        </div>
+        <div class="form-group">
+          <label>Price ($)*:</label>
+          <input type="number" [(ngModel)]="currentItem.price" min="0">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Supplier*:</label>
+        <input type="text" [(ngModel)]="currentItem.supplier">
+      </div>
+
+      <div class="form-group">
+        <label>Popular Item*:</label>
+        <select [(ngModel)]="currentItem.popular">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button class="btn btn-add" (click)="onAdd()">Add New</button>
+        <button class="btn btn-update" (click)="onUpdate()">Update (by Name)</button>
+        <button class="btn btn-delete" (click)="onDelete()">Delete (by Name)</button>
+      </div>
+    </div>
+
+    <div class="table-section">
+      <h3>Current Database</h3>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="inventoryList.length === 0">
+              <td colspan="6" class="text-center">No items found.</td>
+            </tr>
+            <tr *ngFor="let item of inventoryList">
+              <td>{{ item.id }}</td>
+              <td><strong>{{ item.name }}</strong></td>
+              <td>{{ item.category }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>${{ item.price | number:'1.2-2' }}</td>
+              <td>
+                <span class="badge" [ngClass]="item.status === 'In Stock' ? 'bg-green' : 'bg-red'">
+                  {{ item.status }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
