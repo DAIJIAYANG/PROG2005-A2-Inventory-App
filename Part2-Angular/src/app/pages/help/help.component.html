@@ -1,1 +1,31 @@
-<p>help works!</p>
+<div class="page-container help-page">
+  <h2>Help & Support</h2>
+  
+  <div class="faq-section">
+    <h3>Frequently Asked Questions (FAQs)</h3>
+    
+    <div class="faq-item">
+      <h4>How do I add a new item?</h4>
+      <p>Navigate to the <strong>Manage Items</strong> page, fill out the details in the "Add Item" form, and ensure the Item ID is unique.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h4>How can I edit an existing item?</h4>
+      <p>Go to the <strong>Manage Items</strong> page. You must enter the exact <strong>Item Name</strong> in the Update section to modify its details.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h4>Will my data be saved after I close the browser?</h4>
+      <p>No. As per the system design, data is only stored temporarily during your active session. It will be cleared once the browser is closed.</p>
+    </div>
+  </div>
+
+  <div class="troubleshooting-section">
+    <h3>Troubleshooting Guide</h3>
+    <ul>
+      <li><strong>Error: "Item ID already exists":</strong> Each item must have a unique identifier. Try using a different ID format (e.g., ITEM002).</li>
+      <li><strong>Item not updating:</strong> Ensure you typed the Item Name exactly as it appears in the database. The system uses the name as the key for updates.</li>
+      <li><strong>Prices/Quantities not accepting input:</strong> The system strictly validates numeric fields. Make sure you are not entering letters or special characters.</li>
+    </ul>
+  </div>
+</div>
