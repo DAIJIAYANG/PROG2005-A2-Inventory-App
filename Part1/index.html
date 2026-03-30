@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System - Part 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Inventory Management (TypeScript)</h1>
+            <p>Author: JIAYANG DAI (24664639)</p>
+        </header>
+
+        <div id="feedbackMessage"></div>
+
+        <div class="main-content">
+            <section class="control-panel">
+                <h2>Item Details</h2>
+                
+                <div class="input-group">
+                    <label for="itemId">Item ID (Unique)*:</label>
+                    <input type="text" id="itemId" placeholder="e.g., ITEM001">
+                </div>
+                
+                <div class="input-group">
+                    <label for="itemName">Item Name*:</label>
+                    <input type="text" id="itemName" placeholder="For add, update, delete, search">
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="itemCategory">Category*:</label>
+                        <select id="itemCategory">
+                            <option value="Electronics">Electronics</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Tools">Tools</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="itemStatus">Stock Status*:</label>
+                        <select id="itemStatus">
+                            <option value="In Stock">In Stock</option>
+                            <option value="Low Stock">Low Stock</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="itemQuantity">Quantity*:</label>
+                        <input type="number" id="itemQuantity" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="itemPrice">Price ($)*:</label>
+                        <input type="number" id="itemPrice" min="0" step="0.01">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="itemSupplier">Supplier Name*:</label>
+                    <input type="text" id="itemSupplier">
+                </div>
+
+                <div class="input-group">
+                    <label for="itemPopular">Popular Item*:</label>
+                    <select id="itemPopular">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="itemComment">Comment (Optional):</label>
+                    <input type="text" id="itemComment" placeholder="Any extra notes...">
+                </div>
+
+                <div class="button-group">
+                    <button id="btnAdd" class="btn primary">Add Item</button>
+                    <button id="btnUpdate" class="btn warning">Update (by Name)</button>
+                    <button id="btnDelete" class="btn danger">Delete (by Name)</button>
+                    <button id="btnSearch" class="btn info">Search (by Name)</button>
+                </div>
+                
+                <div class="button-group-secondary">
+                    <button id="btnShowAll" class="btn outline">Show All</button>
+                    <button id="btnShowPopular" class="btn outline">Show Popular</button>
+                </div>
+            </section>
+
+            <section class="data-display">
+                <h2>Database Viewer</h2>
+                <div class="table-responsive">
+                    <table id="inventoryTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Popular</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryBody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
