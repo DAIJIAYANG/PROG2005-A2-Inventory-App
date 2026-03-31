@@ -1,3 +1,11 @@
+/**
+ * Author: JIAYANG DAI
+ * Student ID: 24664639
+ * Email: j.dai.12@student.scu.edu.au
+ * Assignment: PROG2005 Assessment 2 - Part 2
+ * Description: Global styling for the main application layout and navigation bar.
+ */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -21,7 +29,7 @@
 
 .nav-links a:hover { background-color: #34495e; }
 
-/* 激活状态的高亮显示 */
+/* Highlight style for active navigation links */
 .nav-links a.active { background-color: #4CAF50; font-weight: bold; }
 
 .main-content { padding: 20px; max-width: 1200px; margin: 0 auto; }

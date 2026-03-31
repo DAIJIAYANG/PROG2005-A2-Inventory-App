@@ -1,7 +1,14 @@
+/**
+ * Author: JIAYANG DAI
+ * Student ID: 24664639
+ * Email: j.dai.12@student.scu.edu.au
+ * Assignment: PROG2005 Assessment 2 - Part 2
+ * Description: Root module configuration for the Angular application.
+ */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// 👉 新增这一行：导入表单模块
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms'; // Required for two-way data binding (ngModel)
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +30,7 @@ import { HelpComponent } from './pages/help/help.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule // 👉 新增这一行：把 FormsModule 放进这里
+    FormsModule // Added FormsModule for form handling
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,54 @@
-.privacy-container { padding: 20px; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #333; }
-h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 30px; }
+/**
+ * Author: JIAYANG DAI
+ * Student ID: 24664639
+ * Email: j.dai.12@student.scu.edu.au
+ * Assignment: PROG2005 Assessment 2 - Part 2
+ * Description: Styling for the Privacy and Security Analysis page.
+ */
 
-.analysis-card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); margin-bottom: 25px; border-left: 4px solid #4CAF50; }
-.analysis-card h3 { margin-top: 0; color: #2c3e50; font-size: 1.2rem; margin-bottom: 15px; }
-.analysis-card p { margin-bottom: 15px; }
-.analysis-card ul { padding-left: 20px; }
-.analysis-card li { margin-bottom: 10px; }
+/* Main container for the privacy page to ensure readability */
+.privacy-container { 
+    padding: 20px; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    line-height: 1.6; 
+    color: #333; 
+}
+
+/* Page heading style */
+h2 { 
+    color: #2c3e50; 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px; 
+    margin-bottom: 30px; 
+}
+
+/* Card layout for individual analysis sections */
+.analysis-card { 
+    background: white; 
+    padding: 25px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08); 
+    margin-bottom: 25px; 
+    border-left: 4px solid #4CAF50; /* Green accent border on the left */
+}
+
+.analysis-card h3 { 
+    margin-top: 0; 
+    color: #2c3e50; 
+    font-size: 1.2rem; 
+    margin-bottom: 15px; 
+}
+
+.analysis-card p { 
+    margin-bottom: 15px; 
+}
+
+/* List styling within the analysis cards */
+.analysis-card ul { 
+    padding-left: 20px; 
+}
+
+.analysis-card li { 
+    margin-bottom: 10px; 
+}
