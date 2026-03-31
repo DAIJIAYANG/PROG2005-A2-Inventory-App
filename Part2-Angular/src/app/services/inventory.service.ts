@@ -3,12 +3,13 @@
  * Student ID: 24664639
  * Email: j.dai.12@student.scu.edu.au
  * Assignment: PROG2005 Assessment 2 - Part 2
- * Description: This service manages the inventory data in memory for the session.
+ * Description: This service acts as the central state management for the inventory data. 
+ * It stores data in memory for the active browser session.
  */
 
 import { Injectable } from '@angular/core';
 
-// 定义和 Part 1 类似的数据接口
+// Data model interface mirroring the requirements from Part 1
 export interface Item {
   id: string;
   name: string;
@@ -25,11 +26,11 @@ export interface Item {
   providedIn: 'root'
 })
 export class InventoryService {
-  // 仅在浏览器会话中保存数据的数组
+  // In-memory array acting as our local database for the session
   private inventoryDB: Item[] = [];
 
   constructor() { 
-    // 初始化时可以放一条假数据方便测试，这很符合学生的开发习惯
+    // Add a dummy item on initialization for easier testing and demonstration
     this.inventoryDB.push({
       id: 'ITEM001',
       name: 'MacBook Pro',
@@ -39,57 +40,64 @@ export class InventoryService {
       supplier: 'Apple Inc.',
       status: 'In Stock',
       popular: 'Yes',
-      comment: 'Sample data'
+      comment: 'Sample initial data'
     });
   }
 
-  // 获取所有商品
+  // Retrieve the full inventory list
   getAllItems(): Item[] {
     return this.inventoryDB;
   }
 
-  // 获取热门商品
+  // Filter and return only items marked as popular
   getPopularItems(): Item[] {
     return this.inventoryDB.filter(item => item.popular === 'Yes');
   }
 
-  // 添加商品：检查 ID 是否唯一
+  // Add a new item, ensuring the Item ID is unique before insertion
   addItem(newItem: Item): { success: boolean, message: string } {
     const exists = this.inventoryDB.some(i => i.id.toLowerCase() === newItem.id.toLowerCase());
+    
     if (exists) {
-      return { success: false, message: 'Item ID already exists!' };
+      return { success: false, message: 'Error: Item ID already exists! Please use a unique ID.' };
     }
+    
     this.inventoryDB.push(newItem);
-    return { success: true, message: 'Item added successfully!' };
+    return { success: true, message: 'Success: Item added to inventory!' };
   }
 
-  // 更新商品：作业要求必须通过名称更新
+  // Update an existing item using its exact Name as the key (as per assessment requirements)
   updateItemByName(targetName: string, updatedData: Item): { success: boolean, message: string } {
     const index = this.inventoryDB.findIndex(i => i.name.toLowerCase() === targetName.toLowerCase());
+    
     if (index !== -1) {
-      // 保留原来的 ID，更新其他数据
+      // Preserve the original ID in case it was accidentally altered in the form
       updatedData.id = this.inventoryDB[index].id; 
       this.inventoryDB[index] = updatedData;
-      return { success: true, message: `Item "${targetName}" updated successfully!` };
+      return { success: true, message: `Success: Item "${targetName}" updated!` };
     }
-    return { success: false, message: `Item "${targetName}" not found.` };
+    
+    return { success: false, message: `Error: Item "${targetName}" not found.` };
   }
 
-  // 删除商品：作业要求必须通过名称删除
+  // Delete an item using its exact Name as the key (as per assessment requirements)
   deleteItemByName(targetName: string): { success: boolean, message: string } {
     const index = this.inventoryDB.findIndex(i => i.name.toLowerCase() === targetName.toLowerCase());
+    
     if (index !== -1) {
       this.inventoryDB.splice(index, 1);
-      return { success: true, message: `Item "${targetName}" deleted successfully!` };
+      return { success: true, message: `Success: Item "${targetName}" deleted permanently!` };
     }
-    return { success: false, message: `Item "${targetName}" not found.` };
+    
+    return { success: false, message: `Error: Item "${targetName}" not found.` };
   }
 
-  // 搜索商品：通过名称模糊搜索
+  // Search for items containing the search term in their name (case-insensitive)
   searchItemsByName(searchTerm: string): Item[] {
     if (!searchTerm) {
-      return this.inventoryDB; // 如果搜索词为空，返回全部
+      return this.inventoryDB; // Return all items if the search box is empty
     }
+    
     return this.inventoryDB.filter(item => 
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );

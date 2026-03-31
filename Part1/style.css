@@ -1,3 +1,12 @@
+/**
+ * Author: JIAYANG DAI
+ * Student ID: 24664639
+ * Email: j.dai.12@student.scu.edu.au
+ * Assignment: PROG2005 Assessment 2 - Part 1
+ * Description: Styling for the Inventory Management System using vanilla CSS.
+ */
+
+/* Define global color variables */
 :root {
     --primary-color: #4CAF50;
     --warning-color: #ff9800;
@@ -7,49 +16,185 @@
     --text-color: #333;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+/* Basic reset and typography */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
 
-body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; }
-.container { max-width: 1200px; margin: 0 auto; }
-header { text-align: center; margin-bottom: 20px; }
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    padding: 20px; 
+}
 
-/* 反馈信息提示框 */
-#feedbackMessage { min-height: 50px; margin-bottom: 15px; }
-.success-msg, .error-msg { padding: 15px; border-radius: 5px; text-align: center; font-weight: bold; animation: fadeIn 0.3s; }
-.success-msg { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-.error-msg { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
 
-/* 主体布局 */
-.main-content { display: flex; flex-wrap: wrap; gap: 20px; }
-.control-panel, .data-display { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex: 1; min-width: 300px; }
-h2 { margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+header { 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
 
-/* 表单与按钮 */
-.input-group { margin-bottom: 15px; width: 100%; }
-.input-row { display: flex; gap: 15px; }
-.input-row .input-group { flex: 1; }
-label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; }
-input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+/* Feedback message box styles (Success / Error alerts) */
+#feedbackMessage { 
+    min-height: 50px; 
+    margin-bottom: 15px; 
+}
 
-.button-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-.button-group-secondary { display: flex; gap: 10px; margin-top: 10px; }
-.btn { padding: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; color: white; transition: opacity 0.2s; width: 100%; }
-.btn:hover { opacity: 0.8; }
+.success-msg, .error-msg { 
+    padding: 15px; 
+    border-radius: 5px; 
+    text-align: center; 
+    font-weight: bold; 
+    animation: fadeIn 0.3s; 
+}
+
+.success-msg { 
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb; 
+}
+
+.error-msg { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb; 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+    to { opacity: 1; } 
+}
+
+/* Main layout using Flexbox */
+.main-content { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+.control-panel, .data-display { 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    flex: 1; 
+    min-width: 300px; 
+}
+
+h2 { 
+    margin-bottom: 15px; 
+    font-size: 1.2rem; 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 5px; 
+}
+
+/* Form and input styles */
+.input-group { 
+    margin-bottom: 15px; 
+    width: 100%; 
+}
+
+.input-row { 
+    display: flex; 
+    gap: 15px; 
+}
+
+.input-row .input-group { 
+    flex: 1; 
+}
+
+label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: 500; 
+    font-size: 0.9rem; 
+}
+
+input, select { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+/* Button styles */
+.button-group { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    margin-top: 20px; 
+}
+
+.button-group-secondary { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 10px; 
+}
+
+.btn { 
+    padding: 10px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    color: white; 
+    transition: opacity 0.2s; 
+    width: 100%; 
+}
+
+.btn:hover { 
+    opacity: 0.8; 
+}
+
 .primary { background-color: var(--primary-color); }
 .warning { background-color: var(--warning-color); color: #fff; }
 .danger { background-color: var(--danger-color); }
 .info { background-color: var(--info-color); }
-.outline { background-color: transparent; border: 2px solid var(--info-color); color: var(--info-color); }
-.outline:hover { background-color: var(--info-color); color: white; }
 
-/* 表格响应式 */
-.table-responsive { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-th { background-color: var(--primary-color); color: white; }
-tr:nth-child(even) { background-color: #f2f2f2; }
+.outline { 
+    background-color: transparent; 
+    border: 2px solid var(--info-color); 
+    color: var(--info-color); 
+}
 
+.outline:hover { 
+    background-color: var(--info-color); 
+    color: white; 
+}
+
+/* Responsive table styles */
+.table-responsive { 
+    overflow-x: auto; 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 15px; 
+}
+
+th, td { 
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    text-align: left; 
+}
+
+th { 
+    background-color: var(--primary-color); 
+    color: white; 
+}
+
+tr:nth-child(even) { 
+    background-color: #f2f2f2; 
+}
+
+/* Mobile responsiveness (Media Queries) */
 @media (max-width: 768px) {
     .input-row { flex-direction: column; gap: 0; }
     .main-content { flex-direction: column; }

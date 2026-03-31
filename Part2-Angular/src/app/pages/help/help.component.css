@@ -1,6 +1,51 @@
-.help-page { max-width: 800px; margin: 0 auto; padding: 20px; }
-h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 30px; }
-h3 { color: #4CAF50; margin-top: 30px; margin-bottom: 15px; }
-.faq-item { background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 15px; }
-.faq-item h4 { margin: 0 0 10px 0; color: #333; }
-.troubleshooting-section ul { background: #fff; padding: 20px 40px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); line-height: 1.6; }
+/**
+ * Author: JIAYANG DAI
+ * Student ID: 24664639
+ * Email: j.dai.12@student.scu.edu.au
+ * Assignment: PROG2005 Assessment 2 - Part 2
+ * Description: Styling for the Help and Support page.
+ */
+
+/* Main page container */
+.help-page { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
+
+/* Page headers */
+h2 { 
+    color: #2c3e50; 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px; 
+    margin-bottom: 30px; 
+}
+
+h3 { 
+    color: #4CAF50; 
+    margin-top: 30px; 
+    margin-bottom: 15px; 
+}
+
+/* FAQ item card styles */
+.faq-item { 
+    background: #fff; 
+    padding: 15px; 
+    border-radius: 6px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    margin-bottom: 15px; 
+}
+
+.faq-item h4 { 
+    margin: 0 0 10px 0; 
+    color: #333; 
+}
+
+/* Troubleshooting section layout */
+.troubleshooting-section ul { 
+    background: #fff; 
+    padding: 20px 40px; 
+    border-radius: 6px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    line-height: 1.6; 
+}
